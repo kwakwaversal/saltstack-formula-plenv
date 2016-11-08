@@ -1,0 +1,11 @@
+{% set map = salt['grains.filter_by']({
+    'default': {
+        'user': 'root',
+        'group': 'root',
+        'perl': {
+          'version': '5.24.0',
+        },
+        'plenv':  '~/.plenv/bin/plenv',
+        'repository': 'git://github.com/tokuhirom/plenv.git',
+    },
+}, merge=salt['pillar.get']('plenv:lookup')) %}
