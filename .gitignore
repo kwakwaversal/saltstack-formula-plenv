@@ -18,4 +18,6 @@ nytprof.out
 *.o
 *.bs
 /_eumm/
+/.vagrant
+/saltstack
 Vagrantfile
