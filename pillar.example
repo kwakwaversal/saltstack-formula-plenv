@@ -16,12 +16,8 @@ plenv:
 
   # A list of plugins to install.
   #
-  # In the example below, 'install' refers to one of the commands that will be
-  # available once this plugin has been added. This becomes a conditional check
-  # to see if a plugin has already been installed or not - so name it correctly!
-  #
   # N.B., you need to include the Perl-Build plugin else you won't be able to
-  # install perl.
+  # install perl!
   #
   # plugins:
   #   install: git://github.com/tokuhirom/Perl-Build.git
