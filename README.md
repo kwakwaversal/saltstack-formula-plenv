@@ -28,7 +28,8 @@ plenv:
   # overridden per user.
   perl:
     packages: []
-    versions: 5.22.0
+    versions:
+      - 5.22.0
 
   users:
     vagrant:
@@ -38,5 +39,6 @@ plenv:
         packages_install_options: -q --cascade-search --mirror ftp://mirror.bytemark.co.uk/CPAN/ --mirror http://cpan.org
         packages:
           - Carton
-        version: 5.24.0
+        versions:
+          - 5.24.0
 ```
