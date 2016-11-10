@@ -7,7 +7,7 @@ include:
   {%- for plugin, gitrepo in plenv.plugins.items() %}
 plenv-plugins-{{ plugin }}-{{ name }}:
   cmd.run:
-    - unless: {{ plenv.bin }} commands | grep {{ plugin }}
+    - unless: test -d ~/.plenv/plugins/{{ plugin }}
     - name: git clone {{ gitrepo }} ~/.plenv/plugins/{{ plugin }}
     - runas: {{ args.user }}
   {%- endfor %}
