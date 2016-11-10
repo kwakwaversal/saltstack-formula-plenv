@@ -1,0 +1,62 @@
+plenv:
+  # These perl options will be used unless an option has been overridden in
+  # the users dictionary below.
+  #
+  perl:
+    global: ''
+    packages_install_options: ''
+    packages: []
+    versions:
+      - 5.24.0
+
+  # Name of the file to append the PATH information for plenv. Defaults to
+  # .bash_profile for Debian and .profile for Ubuntu
+  #
+  # profile: .bash_profile
+
+  # A list of plugins to install.
+  #
+  # In the example below, 'install' refers to one of the commands that will be
+  # available once this plugin has been added. This becomes a conditional check
+  # to see if a plugin has already been installed or not - so name it correctly!
+  #
+  # N.B., you need to include the Perl-Build plugin else you won't be able to
+  # install perl.
+  #
+  # plugins:
+  #   install: git://github.com/tokuhirom/Perl-Build.git
+
+  # Location of the plenv repository (you can overwrite it with a local clone)
+  #
+  # repository: git://github.com/tokuhirom/plenv.git
+
+  # A dictionary of users that plenv should be installed for.
+  #
+  # # Users will install with the default perl: options
+  # users:
+  #   vagrant:
+  #     user: vagrant
+  #     group: vagrant
+  #
+  # # Override default :perl options
+  # users:
+  #   vagrant:
+  #     user: vagrant
+  #     group: vagrant
+  #     perl:
+  #       global: 5.24.0
+  #       packages_install_options: -q --cascade-search --mirror ftp://mirror.bytemark.co.uk/CPAN/ --mirror http://cpan.org
+  #       packages:
+  #         - Carton
+  #       versions:
+  #         - 5.24.0
+  users:
+    vagrant:
+      user: vagrant
+      group: vagrant
+      perl:
+        global: 5.24.0
+        packages:
+          - Carton
+        versions:
+          - 5.24.0
