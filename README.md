@@ -36,6 +36,7 @@ plenv:
       user: vagrant
       group: vagrant
       perl:
+        global: 5.24.0
         packages_install_options: -q --cascade-search --mirror ftp://mirror.bytemark.co.uk/CPAN/ --mirror http://cpan.org
         packages:
           - Carton
