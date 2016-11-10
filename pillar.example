@@ -56,3 +56,5 @@ plenv:
           - Carton
         versions:
           - 5.24.0
+
+# vim: ft=yaml:sw=2
