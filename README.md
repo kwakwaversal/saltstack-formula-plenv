@@ -37,6 +37,6 @@ plenv:
       perl:
         packages_install_options: -q --cascade-search --mirror ftp://mirror.bytemark.co.uk/CPAN/ --mirror http://cpan.org
         packages:
-          - gulp
-        version: 6.9.0
+          - Carton
+        version: 5.24.0
 ```
