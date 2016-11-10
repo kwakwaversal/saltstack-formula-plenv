@@ -4,4 +4,4 @@ include:
   - plenv.plugins
   - plenv.install
   - plenv.global
-  - plenv.cpanm
+  - plenv.global-packages

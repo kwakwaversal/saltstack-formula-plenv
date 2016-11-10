@@ -1,10 +1,14 @@
-{% from "plenv/map.jinja" import map with context %}
+{% from "plenv/map.jinja" import plenv with context %}
 
-plenv-plugins:
-  pkg.installed:
-    - names:
-      - git
+include:
+  - plenv.clone
+
+{%- for name, args in plenv.users.items() %}
+  {%- for plugin, gitrepo in plenv.plugins.items() %}
+plenv-plugins-{{ plugin }}-{{ name }}:
   cmd.run:
-    - unless: test -d ~/.plenv/plugins/perl-build
-    - name: git clone git://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build
-    - user: {{ map.user }}
+    - unless: {{ plenv.bin }} commands | grep {{ plugin }}
+    - name: git clone {{ gitrepo }} ~/.plenv/plugins/{{ plugin }}
+    - runas: {{ args.user }}
+  {%- endfor %}
+{%- endfor %}

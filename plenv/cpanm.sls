@@ -1,9 +1,17 @@
 {% from "plenv/map.jinja" import map with context %}
 
-plenv-cpanm:
+include:
+  - plenv.install
+
+{%- for name, args in plenv.users.items() %}
+  {%- set versions = salt["pillar.get"]("plenv:users:" + name + ":perl:versions", plenv.perl.versions) %}
+  {%- for version in versions %}
+plenv-install-cpamn-{{ version }}-{{ name }}:
   cmd.run:
-    - unless: PLENV_VERISON={{ map.perl.version }} {{ map.plenv }} which cpanm
-    - name: PLENV_VERISON={{ map.perl.version }} {{ map.plenv }} install-cpanm
-    - user: {{ map.user }}
-    - require:
-      - cmd: plenv-install
+    - unless: {{ plenv.bin }} which cpanm
+    - name: {{ plenv.bin }} install-cpanm
+    - runas: {{ args.user }}
+    - env:
+      - PLENV_VERSION: {{ version }}
+  {%- endfor %}
+{%- endfor %}

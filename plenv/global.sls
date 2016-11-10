@@ -1,9 +1,17 @@
-{% from "plenv/map.jinja" import map with context %}
+{% from "plenv/map.jinja" import plenv with context %}
 
-plenv-global:
+include:
+  - plenv.install
+
+{%- for name, args in plenv.users.items() %}
+  {%- set version = salt["pillar.get"]("plenv:users:" + name + ":perl:global", plenv.perl.global) %}
+  {%- if version %}
+plenv-global-{{ name }}:
   cmd.run:
-    - onlyif: {{ map.plenv }} versions |grep {{ map.perl.version }}
-    - name: {{ map.plenv }} global {{ map.perl.version }}
-    - user: {{ map.user }}
+    - onlyif: {{ plenv.bin }} versions | grep {{ version }}
+    - name: {{ plenv.bin }} global {{ version }}
+    - runas: {{ args.user }}
     - require:
-      - cmd: plenv-install
+      - cmd: plenv-install-{{ version }}-{{ name }}
+  {%- endif %}
+{%- endfor %}

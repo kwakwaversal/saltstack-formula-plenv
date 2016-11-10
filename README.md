@@ -4,7 +4,7 @@ http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html
 
 ## Description
 plenv will be installed in ~/.plenv. This is assumed when cloning the main
-repository, when cloning ndenv-related plugins, and conditional checks for
+repository, when cloning plenv-related plugins, and conditional checks for
 certain salt states. It's not currently possible to change the default
 installation folder without updating the whole formula.
 
@@ -24,7 +24,7 @@ system you're salting.
 
 ```yaml
 plenv:
-  # The version of node to be installed for all users. N.B., this can be
+  # The version of perl to be installed for all users. N.B., this can be
   # overridden per user.
   perl:
     packages: []
@@ -34,7 +34,7 @@ plenv:
     vagrant:
       user: vagrant
       group: vagrant
-      node:
+      perl:
         packages_install_options: -q --cascade-search --mirror ftp://mirror.bytemark.co.uk/CPAN/ --mirror http://cpan.org
         packages:
           - gulp
