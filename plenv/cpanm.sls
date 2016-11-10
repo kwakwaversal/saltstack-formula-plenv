@@ -1,4 +1,4 @@
-{% from "plenv/map.jinja" import map with context %}
+{% from "plenv/map.jinja" import plenv with context %}
 
 include:
   - plenv.install
