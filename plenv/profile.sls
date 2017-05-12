@@ -9,7 +9,7 @@ plenv-profile-exists-{{ name }}:
     - name: /home/{{ args.user }}/{{ salt["pillar.get"]("plenv:users:" + name + ":profile", plenv.profile) }}
     {%- endif %}
     - user: {{ args.user }}
-    - group: {{ args.user }}
+    - group: {{ args.group }}
     - mode: 644
 
 plenv-profile-append-{{ name }}:
